@@ -1,0 +1,77 @@
+Natural Language Processing
+========================================================
+author: Steven Barberena
+date: July 1, 2016
+width: 1200
+height: 900
+transition: rotate
+
+Background
+========================================================
+width: 1200
+height: 900
+
+```{r setup, include=FALSE}
+opts_chunk$set(cache=TRUE)
+```
+
+![R Code](img/slideOne.png)
+
+The Coursera Data Science Capstone Project requires us to develop Natural
+Language Process and Prediction Models and to present our work though a Shiny
+App as well as provide some details in this Slidify Presentation.  SwiftKey
+provided data which can be found on [CloudFront.Net](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip)
+
+Approach
+========================================================
+width: 1200
+height: 900
+
+![N-Gram](img/slideTwo.png)
+
+SwiftKey provided us with text data from Blogs, News, and Twitter which allowed
+us to build our N-Gram Model.  As you can imagine, the data was not in a very
+usable state.  So we cleaned the data, and removed inappropriate words.  From
+this we were able to build our N-Gram and Prediction Models.  We are able to
+throttle the size of the models to allow for limited resources, but this
+causes predictions to be less accurate.  Our larger size models, allow for
+better predictions.  The size of the model doesn't affect performance speed,
+and this is key in providing fast reaction time for our users.
+
+For a detailed description, please review the article found at   [WikiPedia.org](https://en.wikipedia.org/wiki/N-gram).
+
+The Application
+========================================================
+width: 1200
+height: 900
+
+![App](img/slideThree.png)
+
+You can find a demo of our larger prediction model  [here](https://barberena.shinyapps.io/Capstone/).
+The default prediction model is based on our analysis of the data provide by
+SwiftKey.  However, as a bonus, we have included in a separate tab an
+N-Gram model which uses the works of Edgar Alan Poe.  Needless to say, the
+results are interesting and illustrate the flexibility and accuracy of our models.
+
+Root Features
+========================================================
+width: 1200
+height: 900
+
+Entering text in our application will not only predict future words, but also
+the word that the user is typing.  The code can easily be called in R by simply
+loading the SearchLogic.R library, and calling the GetPredictionWords function,
+passing in the string as the user types.
+
+```{r SearchLogic, cache=TRUE}
+source('SearchLogic.R')
+GetPredictionWords("It was the best of ")
+GetPredictionWords("The best movie ev")
+```
+
+Other source text data can be used, such as that of Edgar Alan Poe or 
+[William Shakespeare](https://barberena.shinyapps.io/NLP_WilliamShakespeare/),
+which allows us to customize the prediction models based on our client needs.
+
+The source for the Shiny App and the Slidify Presentation is located at
+[GitHub](https://github.com/barberena/Capstone). 
